@@ -62,6 +62,7 @@ public abstract class Usuario implements Menu, Validaciones{
         } while(opcion != 2);
 
     }
+    //esta funcion viene de la interfaz Menu ( la pueden implementar los hijos de usuario)
     public void MenuProfesor(){
         int opcion;
         do {

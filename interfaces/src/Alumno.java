@@ -2,8 +2,7 @@ import javax.swing.*;
 
 //creo la clase alumno , alumno hereda de usuario
 //puede usar todos los datos y funciones de usuario
-//Como ya USUARIO implementa las validaciones no es necesario que lo haga alumno ni profesor si no voy a modificar los metodos
-//en el caso de menu si porque voy a usar distintos menus
+
 public class Alumno extends Usuario {
     public int matricula;
     private static int nro; // el static hace que ese atributo pertenezca a la clase en sí, y no a las instancias
