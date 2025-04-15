@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Profesor extends Usuario implements Menu{
+public class Profesor extends Usuario {
 
     private String titulo;
 
@@ -23,18 +23,39 @@ public class Profesor extends Usuario implements Menu{
     }
 
     @Override
-    public void Login(String mail, String contrasenia) {
-        MenuPrincipal();
-
-    }
-
-    @Override
     public void MenuPrincipal() {
-        JOptionPane.showMessageDialog(null, "Menu profesor");
+        int opcion;
+        do {
+            opcion = JOptionPane.showOptionDialog(null, "Menu",
+                    "Menu Usuarios",
+                    0,
+                    0,
+                    null,
+                    MenuPrincipalEnu.values(),
+                    MenuPrincipalEnu.values());
+            switch (opcion) {
+                case 0:
+                    String mail = JOptionPane.showInputDialog(null,"Ingresa tu mail");
+                    String contrasenia = JOptionPane.showInputDialog(null,"Ingresa tu contrasenia");
+                    if (ValidarMail(mail)) {
+                        boolean acceso = Login(mail, contrasenia);
+                        if (acceso) {
+                            MenuProfesor();
+                            return;
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "mail invalido, debe contener '@davinci.edu.ar'");
+                    }
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null,"Registrarse");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Saliendo.....");
+                    break;
+
+            }
+        } while(opcion != 2);
 
     }
-
-
-
-
-}
+    }
